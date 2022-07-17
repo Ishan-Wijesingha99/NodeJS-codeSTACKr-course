@@ -1,3 +1,4 @@
+// fs means file system
 
 const fsModule = require('fs');
 
@@ -7,13 +8,13 @@ const fsModule = require('fs');
 // takes two arguments
 // first is the path to whatever file in question
 // second is the encoding system, which in this case is just utf-8
-const firstTxtFile = fsModule.readFileSync('./join-example-folder/first.txt', 'utf-8');
+const firstTxtFile = fsModule.readFileSync('./join-example-folder/first.txt', 'utf8');
 
-const secondTxtFile = fsModule.readFileSync('./join-example-folder/second.txt', 'utf-8');
+const secondTxtFile = fsModule.readFileSync('./join-example-folder/second.txt', 'utf8');
 
 
 
-// these will actually log the entire file to the console
+// these will actually log the entire file to the console, it reads the file
 console.log(firstTxtFile);
 console.log(secondTxtFile); 
 
@@ -30,6 +31,10 @@ fsModule.writeFileSync('./join-example-folder/result-sync.txt', 'Hello World!');
 
 // if you want to append new text, you add a third argument which is an options object
 // {flag: 'a'} , this will append the text specified in the second argument to the end
+
+
+
+// remember, readFileSync() and writeFileSync() are synchronous, meaning, the code will not continue executing until these operations are DONE
 
 
 
