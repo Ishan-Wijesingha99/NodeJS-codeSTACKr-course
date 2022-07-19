@@ -9,3 +9,17 @@ type node_modules in the .gitignore file to ignore all files in the current fold
 The files ignored by github are grey rather than white on the sidebar on vs code.
 
 If you check the github repo for this folder, you'll see the node modules are not there!
+
+
+
+Here's something really cool.
+
+If you don't push the node modules to github, and you need these node modules for the code to work, how on earth can another develop fork your code or pull your changes and know what modules they need to make your code work?
+
+Well, this is the beauty of package.json.
+
+Because you ALWAYS have the package.json file in the same folder as the corresponding node modules, the user knows what folder they need to download the node modules on
+
+And, inside this package.json, the names and versions of all the dependencies are already there.
+So, all a user needs to do is go to that directory in the terminal, and run npm install. npm install is a general command, basically the terminal will search the package.json for ALL dependencies it can find, and download them.
+
