@@ -1,0 +1,14 @@
+{
+  "name": "inquirer",
+  "version": "8.2.4",
+  "description": "asks questions in terminal window",
+  "main": "11-npm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
