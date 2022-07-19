@@ -1,0 +1,11 @@
+Node modules tend to take up a lot of space and generally there are a lot of files.
+
+So, ideally, we would push to github everything EXCEPT the node modules.
+
+This is where the .gitignore file comes in.
+
+type node_modules in the .gitignore file to ignore all files in the current folder as well as all subfolders with that name.
+
+The files ignored by github are grey rather than white on the sidebar on vs code.
+
+If you check the github repo for this folder, you'll see the node modules are not there!
