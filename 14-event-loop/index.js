@@ -38,6 +38,9 @@ console.log('third')
 
 
 
+// why is it so crucial that we offload asynchronous tasks to the end of execution?
+// one of the main reasons is so that, when one user sends a request to our server, and it's a very long request that will take some time to complete, we don't want it slowing down our other users that send requests to the server
+// that's why they call it blocking vs non-blocking code. Synchronous code blocks other users, asynchronous code is non-blocking of other users
 
 
 
