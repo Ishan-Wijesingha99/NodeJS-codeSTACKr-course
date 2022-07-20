@@ -1,0 +1,11 @@
+
+
+Devdependencies are packages that we as developers use because it makes development easier, but the application itself does not need it to work.
+
+
+
+Think about vs code extentions like live server, we as developers use it because it makes our lives easier, but technically speaking, you don't need that to make the application itself work.
+
+Would we ever push our vs code extentions to our github repositories? No, because they themselves aren't needed for the application to work.
+
+That's why we keep them in a seperate devDependencies property.
