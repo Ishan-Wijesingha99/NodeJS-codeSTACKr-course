@@ -34,13 +34,13 @@ const readText = function(filePath) {
 
 
 // using async-await to do multiple asynchronous tasks in order
-// we would have to do a lot of chaining and many .then()'s to do multiple asynchronous tasks one after the other
-// for example, let's say we want to read a file, then read another new file, then write a file
+// you'd have to do a lot of chaining and many .then()'s to do multiple asynchronous tasks one after the other
+// for example, let's say we want to read a file, then read another new file
 // this is made easy with async-await 
-const getTextAsyncAwait = async function() {
+const readAndWriteFileAsyncAwait = async function() {
     try {
-        // wait until the promise returns resolved, and only then, execute 'console.log(FirstFileRead)'
-        // this is crucial because if we don't wait until this promise is resolved, if we try and log firstFileRead, it will be undefined
+        // wait until the promise returns as resolved, and only then, execute 'console.log(FirstFileRead)'
+        // this is crucial because if we don't wait until this promise is resolved, when we try and log firstFileRead, it will be undefined
         const firstFileRead = await readText('../1-intro.js');
         console.log(firstFileRead);
 
@@ -54,4 +54,5 @@ const getTextAsyncAwait = async function() {
 }
 
 
-getTextAsyncAwait('../1-intro.js');
+
+readAndWriteFileAsyncAwait('../1-intro.js');
