@@ -53,3 +53,16 @@ firstEmitter.on('response3', function(number, array) {
 firstEmitter.emit('response3', 24, [1, 7]);
 
 
+
+// creating a web server using events
+const http = require('http');
+
+const webServer = http.createServer();
+
+// instead of passing a callback straight into createServer() , we can use .on() with the first argument as the name of the event, and the second argument as the exact same callback
+webServer.on('request', (request, response) => {
+    response.end('Welcome!')
+})
+
+webServer.listen(5000);
+
