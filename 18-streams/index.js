@@ -37,4 +37,11 @@ stream.on('data', function(data) {
 // here we've changed it to 90000 bytes (90kb)
 // can also pass in the encoding
 
-// const stream2 = createReadStream('./massiveFile.txt', { highWaterMark: 90000, encoding: 'utf8'})
+// const stream = createReadStream('./massiveFile.txt', { highWaterMark: 90000, encoding: 'utf8'})
+
+
+
+// also have access to the error event
+stream.on('error', function(err) {
+    console.log(err)
+})
