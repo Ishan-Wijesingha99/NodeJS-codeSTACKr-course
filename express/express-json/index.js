@@ -59,6 +59,54 @@ app.get('/api/:productID/reviews/:reviewID', (req, res) => {
 
 
 
+// query/URL string parameters
+// this is another way of sorting data on a page, as well as only displaying certain sections of data
+// query string always starts with query?
+// the back-end is where query strings and route paramaters are set up, they only exist on a certain website if they were created in the back-end
+
+// just write query
+app.get('/api/v1/query', (req, res) => {
+    // this is how you access all the query strings the user types in
+    console.log(req.query)
+    // this will actually output an object
+    // if the user types in query?name=Ishan&age=21&lastName=Wijesingha , then the object 
+    // { name: 'Ishan', age: '21', lastName: 'Wijesingha' } will be the output
+
+    // now let's actually create query strings so that the products json array can be sorted in different ways
+    // one way is with search=a, all products that start with a will be listed
+    // another way is list=3, only 3 products will be listed
+
+    // let's create a completely new object for products, not just a shallow clone that points to the same thing in the heap
+    let sortedProducts = [...products]
+
+    // destructure the two queries immediately
+    const {search, list} = req.query
+
+    // if search query exists
+    if(search) {
+        // make the new array only include the objects which have their name property starting with what was written by the user for search variable
+        sortedProducts = sortedProducts.filter(productObject => {
+            return productObject.name.startsWith(search)
+        })
+    }
+
+    // if list query exists
+    if(list) {
+        // make the new array only include the number of objects the user wishes to include
+        sortedProducts = sortedProducts.slice(0, Number(list))
+    }
+
+    // if the queries are not specified correctly, an empty array will be returned as the json []
+    // we can account for this error
+    if(sortedProducts.length < 1) {
+        return res.status(200).send('no products matched your search')
+        // the reason we return this is because we want this callback to stop reading the code after this line. Remember, you can only have one response per get() , so have to end execution if this line is read
+    }
+
+    res.status(200).json(sortedProducts)
+})
+
+
 
 
 
